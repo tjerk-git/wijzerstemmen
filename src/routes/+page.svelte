@@ -89,19 +89,23 @@
 
 <ScoreCard {scoreCard} />
 
-<DragDropList
-  id="party"
-  type={VerticalDropZone}
-  itemSize={100}
-  itemCount={partyAnswers.length}
-  on:drop={onDrop}
-  let:index
->
-  <div class="statement" data-party-id={partyAnswers[index].party}>
-    {index + 1}
-    {partyAnswers[index].body}
-  </div>
-</DragDropList>
+<div class="row">
+  <section>
+    <DragDropList
+      id="party"
+      type={VerticalDropZone}
+      itemSize={100}
+      itemCount={partyAnswers.length}
+      on:drop={onDrop}
+      let:index
+    >
+      <div class="statement" data-party-id={partyAnswers[index].party}>
+        {index + 1}
+        {partyAnswers[index].body}
+      </div>
+    </DragDropList>
+  </section>
+</div>
 
 <style>
   .statement {
@@ -110,5 +114,10 @@
     align-items: center;
     border: 2px solid black;
     padding: 2rem;
+  }
+  section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 </style>
